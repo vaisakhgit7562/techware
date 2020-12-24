@@ -5,6 +5,8 @@ import Email from '../utils/Email';
 import helpers from '../utils/helpers';
 const sanitizer = require('sanitize')();
 const bcrypt = require("bcryptjs");
+const multer  = require('multer');
+const fs  = require('fs');
 const { authAPI,userAPI } = respObj;
 const saltRounds = 10;
 
@@ -13,6 +15,21 @@ const em = new Email();
 const refreshToken = process.env.AUTHTOKEN;
 const STRING = 'str';
 const REFERALAGENT = 'PASSWORD RESET';
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+      var dir = './uploads';
+      if (!fs.existsSync(dir)){
+          fs.mkdirSync(dir);
+      }
+      callback(null, dir);
+  },
+  filename: function (req, file, callback) {
+    let datetimestamp = Date.now();
+    callback(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
+
+     
+  }
+});
 function isEmailValid(email) {
   const emailRegex = /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
   if (!email) return false;
@@ -150,12 +167,41 @@ exports.forgotPassword = async (req, res) => {
   }
 };
 
-exports.create = async (req, res) => {
+exports.create = (req, res) => {
   try {
   if (req.headers.refreshtoken !== refreshToken) {
     response.setError(process.env.STATUS_FORBIDDEN, authAPI.auth_failed);
     response.send(res);
   } else {
+    const userPhoto = multer({ storage: storage, fileFilter: helpers.imageFilter }).single('userPhoto');
+    userPhoto(req, res,async function (err) {
+
+    if (req.fileValidationError) {
+    response.setError(process.env.STATUS_BAD_REQUEST, userAPI.invalid_file);
+    response.send(res);
+    return;
+    }
+    else if (!req.file) {
+      response.setError(process.env.STATUS_BAD_REQUEST, userAPI.invalid_file);
+      response.send(res);
+      return;
+    }
+    else if (err instanceof multer.MulterError) {
+      response.setError(process.env.STATUS_BAD_REQUEST, userAPI.invalid_file);
+      response.send(res);
+      return;
+    }
+    else if (err) {
+      response.setError(process.env.STATUS_BAD_REQUEST, userAPI.invalid_file);
+      response.send(res);
+      return;
+    }
+    if (err) {
+    response.setError(process.env.STATUS_BAD_REQUEST, userAPI.invalid_file);
+    response.send(res);
+    return;
+    }
+
   // Validate request
   if (!req.body.userName) {
     response.setError(process.env.STATUS_BAD_REQUEST, userAPI.invalid_name);
@@ -227,18 +273,19 @@ const params = {
   const w_phone= {
     user_phone: user.user_phone,
   };
-    const emailCheck =  await AuthService.check_exist(w_email);
-    const PhoneCheck =  await AuthService.check_exist(w_phone);
-    if (PhoneCheck.count != 0) {
-    response.setError(process.env.STATUS_BAD_REQUEST, userAPI.phone_exists);
-    response.send(res);
-    return;
-    }
 
+  const PhoneCheck =  await AuthService.check_exist(w_phone);
+  const emailCheck =  await AuthService.check_exist(w_email);
+  if (PhoneCheck.count != 0) {
+  response.setError(process.env.STATUS_BAD_REQUEST, userAPI.phone_exists);
+  response.send(res);
+  return;
+  }
+  
   if (emailCheck.count === 0) {
-    const userData =  await AuthService.createUser(user);
+    const userData = await AuthService.createUser(user);
     //create token    
-    const token =  await AuthService.token(userData);
+    const token =   await AuthService.token(userData);
     if (!token) { 
     response.setError(process.env.STATUS_ERROR, authAPI.auth_failed);
     response.send(res);
@@ -267,6 +314,7 @@ const params = {
     response.setError(process.env.STATUS_BAD_REQUEST, userAPI.email_exists);
     response.send(res);
   }
+});
 }
 } catch (err) {
   response.setError(process.env.STATUS_ERROR, authAPI.error_auth);

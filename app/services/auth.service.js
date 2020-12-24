@@ -86,6 +86,7 @@ class AuthService {
     const resp = await database.users.findAndCountAll({ where: reqdata });
     return resp;
   }
+  
   static async check_login(username,user_status) {
     const resp = await database.users.findOne({
       where: {
