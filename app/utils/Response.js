@@ -11,13 +11,13 @@ export default class Response {
     this.statusCode = statusCode;
     this.message = message;
     this.data = data;
-    this.type = 'success';
+    this.type = "success";
   }
 
   setError(statusCode, message) {
     this.statusCode = statusCode;
     this.message = message;
-    this.type = 'error';
+    this.type = "error";
   }
 
   send(res) {
@@ -27,9 +27,9 @@ export default class Response {
       data: this.data,
     };
 
-    if (this.type === 'success') {
+    if (this.type === "success") {
       return res.status(this.statusCode).json(result);
-    // eslint-disable-next-line no-else-return
+      // eslint-disable-next-line no-else-return
     } else {
       return res.status(this.statusCode).json({
         status: this.type,

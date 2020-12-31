@@ -1,10 +1,10 @@
 module.exports = (sequelize, Sequelize) => {
-  const users = sequelize.define('users', {
+  const users = sequelize.define("users", {
     user_id: {
       type: Sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
-  },
+    },
     user_name: {
       type: Sequelize.STRING,
       allowNull: false,
@@ -22,7 +22,7 @@ module.exports = (sequelize, Sequelize) => {
       allowNull: true,
     },
     user_image: {
-      type: Sequelize.BLOB("long"),
+      type: Sequelize.STRING,
       allowNull: true,
     },
     user_phone: {
@@ -32,6 +32,6 @@ module.exports = (sequelize, Sequelize) => {
     user_status: {
       type: Sequelize.INTEGER,
     },
-  }); 
+  });
   return users;
 };

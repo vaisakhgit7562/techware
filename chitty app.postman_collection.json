@@ -1,0 +1,353 @@
+{
+	"id": "64d88479-19bf-2910-1891-708958902d4e",
+	"name": "chitty app",
+	"description": "",
+	"order": [
+		"2aaafc98-cbbc-c289-3d8e-113df2d3ebc0",
+		"ca6de68d-4adf-84a0-01a1-a54c3fe42ce0",
+		"01460fa1-aa49-651f-e7f5-ba8d4c9ef5be",
+		"db63dd5c-6fc3-e885-2b60-85fca81bafd8",
+		"8e2c9ffa-f578-f9a7-ad37-3e14ff56c682"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1608787035787,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "01460fa1-aa49-651f-e7f5-ba8d4c9ef5be",
+			"headers": "refreshtoken: Chitty_478\nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "refreshtoken",
+					"value": "Chitty_478",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8040/api/login",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "64d88479-19bf-2910-1891-708958902d4e",
+			"data": [
+				{
+					"key": "userName",
+					"value": "test123@gmail.com",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userPassword",
+					"value": "admin123",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:8040/api/login",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1609397677049,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "2aaafc98-cbbc-c289-3d8e-113df2d3ebc0",
+			"headers": "refreshtoken: Chitty_478\n//Content-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "refreshtoken",
+					"value": "Chitty_478",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"url": "http://localhost:8040/api/signup",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "64d88479-19bf-2910-1891-708958902d4e",
+			"data": [
+				{
+					"key": "userName",
+					"value": "tech",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userPassword",
+					"value": "admin123",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userEmail",
+					"value": "test123@gmail.com",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userPhone",
+					"value": "9677065665454",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userAddress",
+					"value": "test adress",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userDob",
+					"value": "1950-05-12",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userPhoto",
+					"value": "",
+					"description": "",
+					"type": "file",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "http://localhost:8040/api/signup",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1609396959268,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "8e2c9ffa-f578-f9a7-ad37-3e14ff56c682",
+			"headers": "authorization: Chitty eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVjaCIsImVtYWlsSWQiOiJ0ZXN0MTIzQGdtYWlsLmNvbSIsImlhdCI6MTYwOTM5NzY3MCwiZXhwIjoxNjA5NDQwODcwfQ.lPafAd7h_v1MWzG9K0wXNU6aqEAkh0u0BOIbLuhIFO_nsFbRRsvLzSA408w3WrCgBY7jcmCiPfIxeiQ-MpEzmG3Zp4qkVqVbIZuRv3iyAsOTJbwO9F0WwRxVIjgJ4EIF4Htovxc4I_KHTMHEUVQYjZ21TXiAU51vy-mjQmv3XAo\n",
+			"headerData": [
+				{
+					"key": "authorization",
+					"value": "Chitty eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVjaCIsImVtYWlsSWQiOiJ0ZXN0MTIzQGdtYWlsLmNvbSIsImlhdCI6MTYwOTM5NzY3MCwiZXhwIjoxNjA5NDQwODcwfQ.lPafAd7h_v1MWzG9K0wXNU6aqEAkh0u0BOIbLuhIFO_nsFbRRsvLzSA408w3WrCgBY7jcmCiPfIxeiQ-MpEzmG3Zp4qkVqVbIZuRv3iyAsOTJbwO9F0WwRxVIjgJ4EIF4Htovxc4I_KHTMHEUVQYjZ21TXiAU51vy-mjQmv3XAo",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8040/api/user/payment",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "64d88479-19bf-2910-1891-708958902d4e",
+			"data": [
+				{
+					"key": "amount",
+					"value": "94.8",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userId",
+					"value": "1",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "paymentChittyId",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:8040/api/user/payment",
+			"description": "payment",
+			"descriptionFormat": "html",
+			"time": 1609398275113,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "ca6de68d-4adf-84a0-01a1-a54c3fe42ce0",
+			"headers": "refreshtoken: Chitty_478\nContent-Type: application/x-www-form-urlencoded\n",
+			"headerData": [
+				{
+					"key": "refreshtoken",
+					"value": "Chitty_478",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8040/api/addProduct",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "64d88479-19bf-2910-1891-708958902d4e",
+			"data": [
+				{
+					"key": "chittyNo",
+					"value": "chitty-2",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userId",
+					"value": "1",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "amount",
+					"value": "100",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "issueDate",
+					"value": "2020-12-02",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "dueDate",
+					"value": "2020-12-30",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:8040/api/addProduct",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1609397442607,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "db63dd5c-6fc3-e885-2b60-85fca81bafd8",
+			"headers": "authorization: Chitty eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVjaCIsImVtYWlsSWQiOiJ0ZXN0MTIzQGdtYWlsLmNvbSIsImlhdCI6MTYwOTM5NzY3MCwiZXhwIjoxNjA5NDQwODcwfQ.lPafAd7h_v1MWzG9K0wXNU6aqEAkh0u0BOIbLuhIFO_nsFbRRsvLzSA408w3WrCgBY7jcmCiPfIxeiQ-MpEzmG3Zp4qkVqVbIZuRv3iyAsOTJbwO9F0WwRxVIjgJ4EIF4Htovxc4I_KHTMHEUVQYjZ21TXiAU51vy-mjQmv3XAo\n",
+			"headerData": [
+				{
+					"key": "authorization",
+					"value": "Chitty eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoidGVjaCIsImVtYWlsSWQiOiJ0ZXN0MTIzQGdtYWlsLmNvbSIsImlhdCI6MTYwOTM5NzY3MCwiZXhwIjoxNjA5NDQwODcwfQ.lPafAd7h_v1MWzG9K0wXNU6aqEAkh0u0BOIbLuhIFO_nsFbRRsvLzSA408w3WrCgBY7jcmCiPfIxeiQ-MpEzmG3Zp4qkVqVbIZuRv3iyAsOTJbwO9F0WwRxVIjgJ4EIF4Htovxc4I_KHTMHEUVQYjZ21TXiAU51vy-mjQmv3XAo",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8040/api/user/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "64d88479-19bf-2910-1891-708958902d4e",
+			"data": [
+				{
+					"key": "userName",
+					"value": "tech",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userPassword",
+					"value": "admin1234",
+					"type": "text",
+					"enabled": true,
+					"description": ""
+				},
+				{
+					"key": "userEmail",
+					"value": "newddddgs1@gmail.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "userPhone",
+					"value": "96770656617dd",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "userAddress",
+					"value": "dfgfdg",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "userDob",
+					"value": "01,01,014",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:8040/api/user/1",
+			"description": "get user dashbaord",
+			"descriptionFormat": "html",
+			"time": 1609397845293,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

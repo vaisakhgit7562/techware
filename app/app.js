@@ -14,7 +14,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: '5mb' }));
 
 // parse requests of content-type - application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true, limit: '5mb' }));
+app.use(bodyParser.urlencoded({ extended: true, limit: '5mb',parameterLimit: 1000000}));
 
 // synchronize model with database
 const db = require('./models');
