@@ -1,5 +1,6 @@
 import respObj from "../assets/lang/en.json";
 import UserService from "../services/user.service";
+import AuthService from "../services/auth.service";
 import Response from "../utils/Response";
 const { userAPI } = respObj;
 const response = new Response();
@@ -11,7 +12,8 @@ const getPagination = (page, size) => {
 
 // Retrieve dashboard from the database.
 exports.dashboard = async (req, res) => {
-  const { id } = req.params;
+  const resp = await AuthService.verify(req.headers.authorization);
+  const  id  = resp.userId;
   const { page, size, type } = req.query;
   const { limit, offset } = getPagination(page, size);
   const Users = await UserService.fetch_dashboard(

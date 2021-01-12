@@ -16,8 +16,9 @@ const get_discount = (discount, total) => {
   let totalValue = total - total * cal;
   return parseFloat(totalValue).toFixed(2);
 };
-const get_fine = (percent, amount) => {
+const get_fine = (percent, amount, days) => {
   let fine = (percent / 100) * amount;
+  fine = fine * days;
   let amount_c = parseFloat(fine) + parseFloat(amount);
   return parseFloat(amount_c).toFixed(2);
 };
@@ -61,9 +62,10 @@ class UserService {
       raw: true,
       where: { user_id: user_id },
     });
-    const paid = await database.paid.findOne({
+    const paid = await database.paid.findAll({
       raw: true,
       where: { user_id: user_id },
+      attributes: ['paymentChittyId']
     });
     var m_data = [];
     const today = new Date(new Date().toISOString().split("T")[0]);
@@ -75,15 +77,14 @@ class UserService {
         res.amount = get_discount(discount_val, res.amount);
       }
       if (cdate < today) {
-        res.amount = get_fine(fine_val, res.amount);
+        let timeDifference = Math.abs(cdate.getTime() - today.getTime());
+        let differentDays = Math.ceil(timeDifference / (1000 * 3600 * 24));
+        res.amount = get_fine(fine_val, res.amount, differentDays);
       }
-      if (paid) {
-        if (
-          paid.paymentChittyId == res.paymentChittyId &&
-          user.user_id == paid.user_id
-        ) {
-          return;
-        }
+      let check_paid = paid.findIndex(x => x.paymentChittyId === res.paymentChittyId);
+
+      if (check_paid != '-1') {
+        return;
       }
       m_data.push(res);
     });

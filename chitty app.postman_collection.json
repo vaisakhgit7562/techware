@@ -287,7 +287,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://localhost:8040/api/user/1",
+			"url": "http://localhost:8040/api/user/me",
 			"queryParams": [],
 			"pathVariables": {},
 			"pathVariableData": [],
@@ -339,7 +339,7 @@
 				}
 			],
 			"dataMode": "urlencoded",
-			"name": "http://localhost:8040/api/user/1",
+			"name": "http://localhost:8040/api/user/me",
 			"description": "get user dashbaord",
 			"descriptionFormat": "html",
 			"time": 1609397845293,
